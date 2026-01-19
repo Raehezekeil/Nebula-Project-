@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Flight | Nebula Voyages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NEBULA.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#destinations">Destinations</a>
+            <a href="index.html#fleet">Our Fleet</a>
+        </div>
+        <a href="booking.html" class="cta-btn" style="text-decoration: none;">Book Flight</a>
+    </nav>
+
+    <section
+        style="padding-top: 150px; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start;">
+        <div class="card" style="width: 100%; max-width: 600px;">
+            <h2 style="margin-bottom: 2rem; color: var(--accent-color);">Secure Your Seat</h2>
+            <form id="bookingForm"
+                onsubmit="event.preventDefault(); alert('Booking Request Received! A concierge will contact you shortly.'); window.location.href='index.html';">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">Full Name</label>
+                    <input type="text" required
+                        style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; border-radius: 10px; outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">Destination</label>
+                    <select required
+                        style="width: 100%; padding: 1rem; background: #030014; border: 1px solid var(--glass-border); color: white; border-radius: 10px; outline: none;">
+                        <option value="">Select a Destination</option>
+                        <option value="luna">Luna Resort ($250k)</option>
+                        <option value="mars">Mars Colony ($850k)</option>
+                        <option value="titan">Titan Discovery ($2.1M)</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">Departure Date</label>
+                    <input type="date" required
+                        style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; border-radius: 10px; outline: none; color-scheme: dark;">
+                </div>
+
+                <button type="submit" class="cta-btn"
+                    style="width: 100%; background: var(--accent-color); color: var(--bg-color);">Confirm
+                    Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="padding: 2rem 10%; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
+        <p>&copy; 2026 Nebula Voyages. All systems nominal.</p>
+    </footer>
+
+    <script>
+        // Check for 'dest' query parameter and select it
+        const urlParams = new URLSearchParams(window.location.search);
+        const dest = urlParams.get('dest');
+        if (dest) {
+            const select = document.querySelector('select');
+            select.value = dest;
+        }
+    </script>
+</body>
+
+</html>
